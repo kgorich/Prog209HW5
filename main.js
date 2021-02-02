@@ -35,7 +35,7 @@ window.addEventListener("load", init);
 function init(){
 	if(typeof(Storage)!=="undefined"){
         display();
-    	var button=document.getElementById("button");
+    	var button=document.getElementById("saveMovie");
 	    button.addEventListener("click",saveInfo);
 	}
 	else{
@@ -44,11 +44,11 @@ function init(){
 }
 
 function saveInfo(){
-	var city=document.getElementById("city").value;
-    var weather=document.getElementById("weather").value;
+	var movieName=document.getElementById("title").value;
+    var movieRating=document.getElementById("rating").value;
 
-	localStorage.setItem("cityName",city); // using localStorage, so data saved even when browser closed
-    localStorage.setItem("userWeather", weather);
+	localStorage.setItem("movieName",movieName); // using localStorage, so data saved even when browser closed
+    localStorage.setItem("userRating", movieRating);
 
 
 	display();
@@ -57,14 +57,14 @@ function saveInfo(){
 
 function display(){
 	var rightBox=document.getElementById("useroutput");
-	var theCity=localStorage.getItem("cityName");
-    var theWeather = localStorage.getItem("userWeather");
+	var theMovie=localStorage.getItem("movieName");
+    var theRating = localStorage.getItem("userRating");
 
-    if (theWeather==undefined){
-        document.getElementById("useroutput").innerHTML = "";
+    if (theRating==undefined){
+        rightBox.innerHTML = "";
 	}
     else {
-        document.getElementById("useroutput").innerHTML = "OUTPUT  <hr /><br /><br />The City: " + theCity + "<br /><br />  The Weather: " + theWeather;
+        rightBox.innerHTML = "OUTPUT  <hr /><br />" + theMovie + theRating;
 	}
 
 }
