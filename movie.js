@@ -1,27 +1,24 @@
 class Movie {
+
     constructor(title, rating) {
-        this.movieTitle = title;
-        this.movieRating = rating;
+        this.movieTitle = title.trim();
+        this.movieRating = rating.trim();
     }
+
+    validate() {
+
+        if (this.movieTitle == '') {
+            return false;
+        }
+        else if (this.movieRating == '' || this.movieRating < 1 || this.movieRating > 5) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     toString() {
-        return `${this.movieTitle} ${this.movieRating}`;
+        return `${this.movieTitle}   ${this.movieRating} `;
     }
 }
-
-
-function MovieValidate(){
-let myMovie = new Movie();
-myMovie.movieTitle = document.getElementById("title").value;
-myMovie.movieRating = document.getElementById("rating").value;
-
-if(myMovie.movieTitle = ""){
-return false;
-}
-else if(myMovie.movieRating < 1 || myMovie.movieRating > 5 || myMovie.movieRating == ""){
-return false;
-}
-else{
-    return true;
-}
-}
-
