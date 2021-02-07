@@ -19,6 +19,6 @@ class Movie {
     }
 
     toString() {
-        return `${this.movieTitle}   ${this.movieRating} `;
+        return '${this.movieTitle}   ${this.movieRating} ';
     }
 }
