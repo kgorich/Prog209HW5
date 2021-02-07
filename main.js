@@ -1,7 +1,7 @@
 window.addEventListener("load", init);
 
 
-movie_arr = []
+movie_arr = [];
 
 function init() {
     document.getElementById('saveMovie').addEventListener('click', saveInfo);
@@ -9,8 +9,8 @@ function init() {
 }
 
 function saveInfo() {
-    var movieNameNode = document.getElementById("title");
-    var movieRatingNode = document.getElementById("rating");
+    let movieNameNode = document.getElementById("title");
+    let movieRatingNode = document.getElementById("rating");
 
     let new_movie = new Movie(movieNameNode.value, movieRatingNode.value);
 
@@ -21,17 +21,18 @@ function saveInfo() {
         movieRatingNode.value = '';
         console.log(movie_arr);
 
-    } else {
+    } 
+    else {
         alert('Save Failed! Try Again');
     }
 }
 
 function display() {
-    var rightBox = document.getElementById("useroutput");
+    let rightBox = document.getElementById("useroutput");
 
     let list = document.createElement('ul');
 
-    rightBox.innerHTML = 'OUTPUT <hr /> <br /> <br />';
+    rightBox.innerHTML = 'Movie Rating List <hr /> <br /> <br />';
 
     movie_arr.forEach(function (item, index) {
         console.log(item, index);
